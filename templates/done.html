@@ -1,0 +1,129 @@
+<html>
+<head>
+    <title>SICK GAME</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body style="background-color: #333; margin:0px; padding:0px; height:100vh; width:100vw">
+<center><br><br><br>
+    <div class="card" style="width:35%;">
+            <img class="card-image" style="width:100%; height:auto;" src="{{image}}" /><br>
+            <div class="content"><h2>You did it!</h2>
+            <p>The answer was: {{answer}}</p>
+            </div>
+
+            <input class="input is-rounded" style="display:none;" type="number" name="guess" id="guess" value="{{guess}}" readonly>
+
+            {% if guess == 1 %}
+                <table class="table is-bordered" >
+                    <tr>
+                        <td class="has-background-success" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-light" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-light" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-light" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-light" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-light" style="width:5%;">&nbsp;</td>
+                    </tr>
+                </table>
+            {% endif %}
+            {% if guess == 2 %}
+                <table class="table is-bordered" >
+                    <tr>
+                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-success" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-light" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-light" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-light" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-light" style="width:5%;">&nbsp;</td>
+                    </tr>
+                </table>
+            {% endif %}
+            {% if guess == 3 %}
+                <table class="table is-bordered" >
+                    <tr>
+                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-success" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-light" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-light" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-light" style="width:5%;">&nbsp;</td>
+                    </tr>
+                </table>
+            {% endif %}
+            {% if guess == 4 %}
+                <table class="table is-bordered" >
+                    <tr>
+                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-success" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-light" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-light" style="width:5%;">&nbsp;</td>
+                    </tr>
+                </table>
+            {% endif %}
+            {% if guess == 5 %}
+                <table class="table is-bordered" >
+                    <tr>
+                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-success" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-light" style="width:5%;">&nbsp;</td>
+                    </tr>
+                </table>
+            {% endif %}
+        {% if guess == 6 %}
+                <table class="table is-bordered" >
+                    <tr>
+                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
+                        <td class="has-background-success" style="width:5%;">&nbsp;</td>
+                    </tr>
+                </table>
+            {% endif %}
+
+
+
+            <button class="post button is-primary" onclick="myFunction()">share your score</button><br><br>
+
+    </div>
+</center>
+<div class="card" style="position: fixed; bottom: 20px; right: 20px; padding: 10px;">
+    <p>Do you like Coverle?<a href="https://ko-fi.com/wegmanjunior"> Buy me a &#9749;</a></p>
+</div>
+<script>
+function myFunction() {
+    {% if guess == 1 %}
+    let text = "🟩⬜⬜⬜⬜⬜";
+    {% endif %}
+    {% if guess == 2 %}
+    let text = "🟥🟩⬜⬜⬜⬜";
+    {% endif %}
+    {% if guess == 3 %}
+    let text = "🟥🟥🟩⬜⬜⬜";
+    {% endif %}
+    {% if guess == 4 %}
+    let text = "🟥🟥🟥🟩⬜⬜";
+    {% endif %}
+    {% if guess == 5 %}
+    let text = "🟥🟥🟥🟥🟩⬜";
+    {% endif %}
+    {% if guess == 6 %}
+    let text = "🟥🟥🟥🟥🟥🟩";
+    {% endif %}
+
+  /* Copy the text inside the text field */
+  navigator.clipboard.writeText(text + "\n\n www.niekwegman.nl");
+
+  /* Alert the copied text */
+  alert("Copied the text: " + text + "\n\n www.niekwegman.nl");
+}
+</script>
+
+</body>
+</html>
