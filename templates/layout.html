@@ -1,0 +1,51 @@
+<html>
+<head>
+    <title>Coverle</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body style="background-color: #333; margin:0px; padding:0px; height:auto; width:100vw">
+
+    <div class="columns is-centered is-vcentered" style="margin:0px;">
+        <div class="card column is-4">
+            <div class="content">
+                <table class="header">
+                    <tr>
+                        <td><a href="#" style="font-size:2em;" onclick="show('popup2')"><b>?</b></a></td>
+                        <td><center><p style="font-size:2em;"><b>Coverle</b> {{daynr}}</p></center></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {% block page %}{% endblock %}
+
+    <div class="card" style="position: fixed; bottom: 20px; right: 20px; padding: 10px;">
+        <p>Do you like Coverle?<a href="https://ko-fi.com/wegmanjunior"> Buy me a coffee &#9749;</a></p>
+    </div>
+
+
+    <div class="popup" id="popup2">
+        <p><b>Guess the coverle in 6 tries!</b></p>
+        <p>The shown image is a blurred version of an album cover, with each guess you will get a slightly less blurred version of the image.</p><br>
+        <p>This game is inspired by Wordle.</p><br>
+        <p>A new Coverle will be available every day.</p><br>
+        <a href="#" onclick="hide('popup2')">Ok!</a>
+    </div>
+
+    <script>
+        $ = function(id) {
+          return document.getElementById(id);
+        }
+
+        var show = function(id) {
+            $(id).style.display ='block';
+        }
+        var hide = function(id) {
+            $(id).style.display ='none';
+        }
+    </script>
+</body>
+</html>
