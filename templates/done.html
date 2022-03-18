@@ -81,12 +81,12 @@
                     </table>
                 {% endif %}
 
-                <button class="post button is-primary" onclick="myFunction()">share your score</button><br><br>
+                <button class="post button is-primary" onclick="clipboardCopy()">share your score</button><br><br>
             </center>
         </div>
     </div>
 <script>
-function myFunction() {
+function clipboardCopy() {
     {% if guess == 1 %}
     let text = "🟩⬜⬜⬜⬜⬜";
     {% endif %}
@@ -107,10 +107,10 @@ function myFunction() {
     {% endif %}
 
   /* Copy the text inside the text field */
-  navigator.clipboard.writeText(text + "\n\n www.niekwegman.nl");
+  navigator.clipboard.writeText("Coverle {{daynr}} {{guess}}/6 \n\n" + text + "\n\n coverle.contero.nl");
 
   /* Alert the copied text */
-  alert("Copied the text: " + text + "\n\n www.niekwegman.nl");
+  alert("Copied the text: \n\n Coverle {{daynr}} {{guess}}/6 \n\n" + text + "\n\n coverle.contero.nl");
 }
 </script>
 

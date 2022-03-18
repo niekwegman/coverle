@@ -9,9 +9,11 @@ import csv
 
 
 def app():
+    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+
     today = str(datetime.date.today() + datetime.timedelta(days=1))
     cwd = os.getcwd()
-    folder = os.path.join(cwd, 'static/' + today)
+    folder = os.path.join(THIS_FOLDER, 'static/' + today)
     try:
         os.mkdir(folder)
     except:
@@ -40,11 +42,10 @@ def app():
 
     answer = albumname + ', ' + artistname
     albumlist = []
-    with open('albums.csv', 'r') as file:
+    with open(os.path.join(THIS_FOLDER, 'albums.csv'), 'r') as file:
         reader = csv.reader(file)
         for i in reader:
             albumlist.append(i[0])
-    print(albumlist)
 
     if answer in albumlist:
         print('already in there, trying again')
@@ -52,12 +53,12 @@ def app():
 
     else:
         print('adding to csv', answer)
-        with open('albums.csv', 'a') as file:
+        with open(os.path.join(THIS_FOLDER, 'albums.csv'), 'a') as file:
             writer = csv.writer(file)
             writer.writerow([answer])
 
 
-        f = open('static/' + today + '/data.csv', 'w+')
+        f = open(os.path.join(THIS_FOLDER, 'static/' + today + '/data.csv'), 'w+')
 
         # create the csv writer
         writer = csv.writer(f)
@@ -72,17 +73,17 @@ def app():
         tempname = "temp.jpeg"
 
         img_data = requests.get(albumart).content
-        with open(tempname, 'wb') as handler:
+        with open(os.path.join(THIS_FOLDER, tempname), 'wb') as handler:
             handler.write(img_data)
 
 
         # Open existing image
-        OriImage = Image.open(tempname)
+        OriImage = Image.open(os.path.join(THIS_FOLDER, tempname))
         blurriness = [0, 5, 10, 20, 30, 40, 50]
         for i in blurriness:
             boxImage = OriImage.filter(ImageFilter.BoxBlur(i))
             rgb_im = boxImage.convert('RGB')
-            rgb_im.save('static/' + today + '/image' + str(i) + '.jpg')
-        os.remove('temp.jpeg')
+            rgb_im.save(os.path.join(THIS_FOLDER, 'static/' + today + '/image' + str(i) + '.jpg'))
+        os.remove(os.path.join(THIS_FOLDER, 'temp.jpeg'))
 
 app()
