@@ -29,7 +29,6 @@ def game():
         albumlist.append(answer)
         albumlist.sort()
 
-
     if request.method == 'GET':
         image = url_for('static', filename=str(today) + '/image50.jpg')
         return render_template('game.html', guess=0, image=image, answer=answer, albumlist=albumlist, daynr=delta.days)
@@ -44,15 +43,15 @@ def game():
             nextguess = int(guess) + 1
 
             if nextguess == 1:
-                newimage = url_for('static', filename=str(today) + '/image40.jpg')
-            if nextguess == 2:
                 newimage = url_for('static', filename=str(today) + '/image30.jpg')
+            if nextguess == 2:
+                newimage = url_for('static', filename=str(today) + '/image15.jpg')
             if nextguess == 3:
-                newimage = url_for('static', filename=str(today) + '/image20.jpg')
+                newimage = url_for('static', filename=str(today) + '/image8.jpg')
             if nextguess == 4:
-                newimage = url_for('static', filename=str(today) + '/image10.jpg')
-            if nextguess == 5:
                 newimage = url_for('static', filename=str(today) + '/image5.jpg')
+            if nextguess == 5:
+                newimage = url_for('static', filename=str(today) + '/image3.jpg')
 
             if nextguess == 6:
                 #FAILED

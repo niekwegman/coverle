@@ -27,10 +27,10 @@ function myFunction() {
     let text = "🟥🟥🟥🟥🟥🟥";
 
   /* Copy the text inside the text field */
-  navigator.clipboard.writeText(text + "\n\n www.niekwegman.nl");
+  navigator.clipboard.writeText("Coverle {{daynr}} {{guess}}/6 \n\n" + text + "\n\n https://coverle.contero.nl");
 
   /* Alert the copied text */
-  alert("Copied the text: " + text + "\n\n www.niekwegman.nl");
+  alert("Copied the text: \n\n Coverle {{daynr}} {{guess}}/6 \n\n" + text + "\n\n https://coverle.contero.nl");
 }
 </script>
     {% endblock %}

@@ -79,7 +79,7 @@ def app():
 
         # Open existing image
         OriImage = Image.open(os.path.join(THIS_FOLDER, tempname))
-        blurriness = [0, 5, 10, 20, 30, 40, 50]
+        blurriness = [0, 3, 5, 8, 10, 15, 20, 25, 30, 35, 40, 50]
         for i in blurriness:
             boxImage = OriImage.filter(ImageFilter.BoxBlur(i))
             rgb_im = boxImage.convert('RGB')
