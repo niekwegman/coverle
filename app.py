@@ -35,7 +35,7 @@ def game():
 
     if request.method == 'POST':
         guess = request.form['guess']
-        input = request.form['input']
+        input = request.form['rharhaerjnnsdfh']
 
         if input == answer:
             return render_template('done.html', guess=int(guess) + 1, image=url_for('static', filename=str(today) + '/image0.jpg'), answer=answer, daynr=delta.days)

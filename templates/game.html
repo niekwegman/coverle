@@ -2,10 +2,12 @@
     {% block page %}
     <div class="columns is-centered" style="padding:2em;">
         <div class="card column is-4-desktop" style="padding:0px !important; ">
-            <form class="form" method="post">
+            <form autocomplete="off" class="form" method="post">
                 <img class="card-image" style="width:100%; height:auto;" src="{{image}}" /><br>
                 <center>
-                    <input class="input is-primary" style="width:95%;" type="text" name="input" id="input" class="guess" placeholder="Guess" list="list" required autofocus><br>
+                    <div class="autocomplete">
+                        <input autocomplete="off" class="input is-primary" style="width:95%;" type="text" name="rharhaerjnnsdfh" id="input" class="guess" placeholder="Guess" required autofocus><br>
+                    </div><br>
                     <input class="input is-rounded" style="display:none;" type="number" name="guess" id="guess" value="{{guess}}" readonly><br>
 
                     {% if guess == 0 %}
@@ -84,16 +86,16 @@
 
                     <button class="post button is-primary" type="submit">Guess</button><br><br>
 
-
-                    <datalist id="list">
-                        {% for album in albumlist %}
-                            <option>
-                                {{album}}
-                            </option>
-                        {% endfor %}
-                    </datalist>
                 </center>
             </form><!-- /form -->
         </div>
     </div>
+    <script>
+        var countries = [
+            {% for album in albumlist %}
+                "{{album}}",
+            {% endfor %}
+            ];
+        autocomplete(document.getElementById("input"), countries);
+    </script>
     {% endblock %}
