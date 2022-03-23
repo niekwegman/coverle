@@ -6,6 +6,22 @@ import os
 import datetime
 import csv
 
+def capitalize_each_word(original_str):
+    result = ""
+    # Split the string and get all words in a list
+    list_of_words = original_str.split()
+    # Iterate over all elements in list
+    for elem in list_of_words:
+        # capitalize first letter of each word and add to a string
+        if len(result) > 0:
+            result = result + " " + elem.strip().capitalize()
+        else:
+            result = elem.capitalize()
+    # If result is still empty then return original string else returned capitalized.
+    if not result:
+        return original_str
+    else:
+        return result
 
 
 def app():
@@ -40,7 +56,7 @@ def app():
     artistname = data['topalbums']['album'][0]['artist']['name']
 
 
-    answer = albumname + ', ' + artistname
+    answer = capitalize_each_word(albumname) + ', ' + capitalize_each_word(artistname)
     albumlist = []
     with open(os.path.join(THIS_FOLDER, 'albums.csv'), 'r') as file:
         reader = csv.reader(file)

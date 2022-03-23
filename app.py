@@ -31,6 +31,27 @@ def game():
 
     if request.method == 'GET':
         image = url_for('static', filename=str(today) + '/image50.jpg')
+        #get cookie to check if already done
+        try:
+            cookietoday = request.cookies.get('coverle' + str(delta.days))
+            print(cookietoday)
+            if int(cookietoday) < 7:
+                print(cookietoday)
+                return render_template('done.html', guess=int(cookietoday),
+                                       image=url_for('static', filename=str(today) + '/image0.jpg'), answer=answer,
+                                       daynr=delta.days)
+
+
+            elif int(cookietoday) == 7:
+                print(cookietoday)
+                return render_template('failed.html', guess=7,
+                                       image=url_for('static', filename=str(today) + '/image0.jpg'), answer=answer,
+                                       daynr=delta.days)
+
+
+        except Exception as e:
+            print(e)
+
         return render_template('game.html', guess=0, image=image, answer=answer, albumlist=albumlist, daynr=delta.days)
 
     if request.method == 'POST':
@@ -39,6 +60,7 @@ def game():
 
         if input == answer:
             return render_template('done.html', guess=int(guess) + 1, image=url_for('static', filename=str(today) + '/image0.jpg'), answer=answer, daynr=delta.days)
+
         else:
             nextguess = int(guess) + 1
 

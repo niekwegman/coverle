@@ -1,29 +1,50 @@
 {% extends "layout.html" %}
     {% block page %}
-    <div class="columns is-centered" style="padding:2em;">
-        <div class="card column is-4-desktop" style="padding:0px !important; ">
-            <img class="card-image" style="width:100%; height:auto;" src="{{image}}" /><br>
-            <center>
-                <div class="content">
-                    <h2>Aw, better luck next time!</h2>
-                    <p>The answer was: {{answer}}</p>
+<main>
+    <div class="album py-5" style="min-height:60vh;">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col">
+                    <center>
+                        <div class="card shadow-sm" style="max-width:500px;">
+                            <img src="{{image}}" class="card-img-top" style="width:100%; height:auto;" role="img"
+                                focusable="false" />
+                            <div class="card-body">
+                                <form autocomplete="off" class="form">
+                                    <h2>Awww, maybe next time... </h2>
+                                    <p>the answer was {{answer}}</p>
+
+                                    <table class="table bordered">
+                                        <tr>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <button class="btn btn-primary" onclick="clipboardCopy()">Share your score!</button><br><br>
+                                </form>
+                            </div>
+                        </div>
+                    </center>
                 </div>
-                <table class="table is-bordered" >
-                    <tr>
-                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                        <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                    </tr>
-                </table>
-                <button class="post button is-primary" onclick="myFunction()">share your score</button><br><br>
-            </center>
+            </div>
         </div>
     </div>
+</main>
+
+
+<!-- COOKIE WORK -->
 <script>
-function myFunction() {
+    document.cookie = "coverle{{daynr}}=7";
+    document.cookie = "coverlestreak={{streakdata}}";
+</script>
+
+<!-- COPY WORK -->
+<script>
+function clipboardCopy() {
     let text = "🟥🟥🟥🟥🟥🟥";
 
   /* Copy the text inside the text field */

@@ -1,53 +1,58 @@
-<html>
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Niek Wegman">
+    <meta name="generator" content="Hugo 0.88.1">
     <title>Coverle</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/5336e68404.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='app.js') }}"></script>
-</head>
-<body style="background-color: #333; margin:0px; padding:0px; height:auto; width:100vw">
+  </head>
+  <body class="bg-dark">
 
-    <div class="columns is-centered is-vcentered" style="margin:0px;">
-        <div class="card column is-4-desktop">
-            <div class="content">
-                <table class="header">
-                    <tr>
-                        <td style="width:10%;"><a href="#" style="font-size:2em;" onclick="show('popup2')"><b>?</b></a></td>
-                        <td style="width:80%;"><center><p style="font-size:2em;"><b>Coverle</b> {{daynr}}</p></center></td>
-                        <td style="width:10%;"></td>
-                    </tr>
-                </table>
+    <header>
+      <div class="collapse bg-light" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-dark">Guess the coverle in 6 tries!</h4>
+              <p class="text-dark">
+                The shown image is a blurred version of an album cover, with each guess you will get a slightly less blurred version of the image.<br>
+                This game is inspired by Wordle.<br>
+                A new Coverle will be available every day.
+              </p>
             </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-dark">Links</h4>
+              <ul class="list-unstyled">
+                <li><a href="http://twitter.com/niekotine" class="text-dark">Follow on Twitter</a></li>
+                <li><a href="https://ko-fi.com/wegmanjunior" class="text-dark">Buy me a coffee</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
+      <div class="navbar navbar-dark bg-light shadow-sm">
+        <div class="container">
+          <a href="#" class="navbar-brand d-flex align-items-center text-dark">
+            <i class="fa-solid fa-record-vinyl"></i>&nbsp;
+            <strong>Coverle</strong>
+          </a>
+          <button class="navbar-toggler text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
 
     {% block page %}{% endblock %}
 
-    <div class="card" style="position: fixed; bottom: 20px; right: 20px; padding: 10px;">
-        <p>Do you like Coverle?<a href="https://ko-fi.com/wegmanjunior"> Buy me a coffee &#9749;</a></p>
-    </div>
-
-
-    <div class="popup" id="popup2">
-        <p><b>Guess the coverle in 6 tries!</b></p>
-        <p>The shown image is a blurred version of an album cover, with each guess you will get a slightly less blurred version of the image.</p><br>
-        <p>This game is inspired by Wordle.</p><br>
-        <p>A new Coverle will be available every day.</p><br>
-        <a href="#" onclick="hide('popup2')">Ok!</a>
-    </div>
-
-    <script>
-        $ = function(id) {
-          return document.getElementById(id);
-        }
-
-        var show = function(id) {
-            $(id).style.display ='block';
-        }
-        var hide = function(id) {
-            $(id).style.display ='none';
-        }
-    </script>
-</body>
+    <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+  </body>
 </html>

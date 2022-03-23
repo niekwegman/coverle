@@ -1,101 +1,119 @@
 {% extends "layout.html" %}
     {% block page %}
-    <div class="columns is-centered" style="padding:2em;">
-        <div class="card column is-4-desktop" style="padding:0px !important; ">
-            <form autocomplete="off" class="form" method="post">
-                <img class="card-image" style="width:100%; height:auto;" src="{{image}}" /><br>
-                <center>
-                    <div class="autocomplete">
-                        <input autocomplete="off" class="input is-primary" style="width:95%;" type="text" name="rharhaerjnnsdfh" id="input" class="guess" placeholder="Guess" required autofocus><br>
-                    </div><br>
-                    <input class="input is-rounded" style="display:none;" type="number" name="guess" id="guess" value="{{guess}}" readonly><br>
-
-                    {% if guess == 0 %}
-                        <table class="table is-bordered" >
-                            <tr>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                            </tr>
-                        </table>
-                    {% endif %}
-                    {% if guess == 1 %}
-                        <table class="table is-bordered" >
-                            <tr>
-                                <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                            </tr>
-                        </table>
-                    {% endif %}
-                    {% if guess == 2 %}
-                        <table class="table is-bordered" >
-                            <tr>
-                                <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                            </tr>
-                        </table>
-                    {% endif %}
-                    {% if guess == 3 %}
-                        <table class="table is-bordered" >
-                            <tr>
-                                <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                            </tr>
-                        </table>
-                    {% endif %}
-                    {% if guess == 4 %}
-                        <table class="table is-bordered" >
-                            <tr>
-                                <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                            </tr>
-                        </table>
-                    {% endif %}
-                    {% if guess == 5 %}
-                        <table class="table is-bordered" >
-                            <tr>
-                                <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-danger" style="width:5%;">&nbsp;</td>
-                                <td class="has-background-light" style="width:5%;">&nbsp;</td>
-                            </tr>
-                        </table>
-                    {% endif %}
-
-
-                    <button class="post button is-primary" type="submit">Guess</button><br><br>
-
-                </center>
-            </form><!-- /form -->
+<main>
+    <div class="album py-5" style="min-height:60vh;">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col">
+                    <center>
+                        <div class="card shadow-sm" style="max-width:500px;">
+                            <img src="{{image}}" class="card-img-top" style="width:100%; height:auto;" role="img"
+                                focusable="false" />
+                            <div class="card-body">
+                                <form autocomplete="off" class="form" method="post">
+                                    <div class="autocomplete content">
+                                        <input autocomplete="off" class="form-control" style="width:95%;"
+                                            type="text" name="rharhaerjnnsdfh" id="input" class="guess"
+                                            placeholder="Guess" required autofocus><br>
+                                        <input class="input" style="display:none;" type="number" name="guess"
+                                            id="guess" value="{{guess}}" readonly>
+                                    </div><br><br>
+                                    {% if guess == 0 %}
+                                    <table class="table bordered">
+                                        <tr>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    {% endif %}
+                                    {% if guess == 1 %}
+                                    <table class="table bordered">
+                                        <tr>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    {% endif %}
+                                    {% if guess == 2 %}
+                                    <table class="table bordered">
+                                        <tr>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    {% endif %}
+                                    {% if guess == 3 %}
+                                    <table class="table bordered">
+                                        <tr>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    {% endif %}
+                                    {% if guess == 4 %}
+                                    <table class="table bordered">
+                                        <tr>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    {% endif %}
+                                    {% if guess == 5 %}
+                                    <table class="table bordered">
+                                        <tr>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-danger" style="width:5%;">&nbsp;</td>
+                                            <td class="bg-light" style="width:5%;">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    {% endif %}
+                                    <button id="buttonguess" class="post btn btn-primary"
+                                        type="submit">Guess</button><br><br>
+                                </form>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+            </div>
         </div>
     </div>
-    <script>
-        var countries = [
-            {% for album in albumlist %}
-                "{{album}}",
-            {% endfor %}
-            ];
-        autocomplete(document.getElementById("input"), countries);
-    </script>
-    {% endblock %}
+</main>
+<script>
+    var countries = [
+        {% for album in albumlist %}
+            "{{album}}",
+        {% endfor %}
+        ];
+    autocomplete(document.getElementById("input"), countries);
+</script>
+<script>
+   $("#input").on('keyup', function (event) {
+      if (event.keyCode === 13) {
+         document.getElementById("buttonguess").click();
+      }
+   });
+</script>
+{% endblock %}
